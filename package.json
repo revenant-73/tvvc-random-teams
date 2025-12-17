@@ -1,0 +1,20 @@
+{
+  "name": "tvvc-team-generator",
+  "version": "1.0.0",
+  "description": "A random team generator for TVVC Volleyball Club",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve",
+    "build": "echo 'No build needed for static site'"
+  },
+  "keywords": [
+    "volleyball",
+    "team-generator",
+    "random"
+  ],
+  "author": "TVVC",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

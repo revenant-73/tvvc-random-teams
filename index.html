@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVVC Team Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏐 TVVC Team Generator</h1>
+            <p>Create balanced random teams instantly</p>
+        </header>
+
+        <main>
+            <section class="setup-section">
+                <h2>Team Setup</h2>
+                
+                <div class="mode-selector">
+                    <label>How do you want to create teams?</label>
+                    <div class="mode-options">
+                        <button class="mode-btn active" data-mode="quick">
+                            <span class="mode-title">Quick Mode</span>
+                            <span class="mode-desc">Just player numbers</span>
+                        </button>
+                        <button class="mode-btn" data-mode="named">
+                            <span class="mode-title">Named Players</span>
+                            <span class="mode-desc">With player names</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quickModeSection" class="mode-content active">
+                    <div class="input-group">
+                        <label for="playerCountQuick">Number of Players Present:</label>
+                        <input type="number" id="playerCountQuick" min="2" max="100" value="10">
+                    </div>
+                    <div class="input-group">
+                        <label for="teamSizeQuick">Players Per Team:</label>
+                        <input type="number" id="teamSizeQuick" min="1" max="50" value="2">
+                    </div>
+                    <button id="generateQuickBtn" class="btn btn-primary">Generate Teams</button>
+                </div>
+
+                <div id="namedModeSection" class="mode-content">
+                    <div class="input-group">
+                        <label for="rosterSelect">Load a Roster:</label>
+                        <div class="input-with-button">
+                            <select id="rosterSelect" class="roster-dropdown">
+                                <option value="">-- Select a roster --</option>
+                            </select>
+                            <button id="loadRosterBtn" class="btn btn-small">Load</button>
+                        </div>
+                    </div>
+
+                    <div class="divider">or</div>
+
+                    <div class="input-group">
+                        <label for="playerNameInput">Add Player Name Manually:</label>
+                        <div class="input-with-button">
+                            <input type="text" id="playerNameInput" placeholder="Enter player name">
+                            <button id="addPlayerNameBtn" class="btn btn-small">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="added-players">
+                        <h3>Players Added</h3>
+                        <div id="addedPlayersList" class="players-list"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="teamSizeNamed">Players Per Team:</label>
+                        <input type="number" id="teamSizeNamed" min="1" max="50" value="2">
+                    </div>
+
+                    <div class="mode-actions">
+                        <button id="generateNamedBtn" class="btn btn-primary">Generate Teams</button>
+                        <button id="clearPlayersBtn" class="btn btn-small">Clear All Players</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <section id="teamsSection" class="teams-section" style="display: none;">
+                <div class="teams-header">
+                    <h2>Teams</h2>
+                    <button id="regenerateBtn" class="btn btn-secondary">🔄 Re-randomize</button>
+                </div>
+                
+                <div id="teamsList" class="teams-list"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made for TVVC Volleyball Club</p>
+        </footer>
+    </div>
+
+    <script src="volleyball-players.js"></script>
+    <script src="rosters.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

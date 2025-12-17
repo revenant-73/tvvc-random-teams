@@ -29,26 +29,41 @@ A sleek, mobile-first web app for randomly creating volleyball teams with player
 
 ## How to Add/Edit Rosters
 
-Open `rosters.js` and add new rosters to the `TEAM_ROSTERS` array:
+### Step-by-Step Guide
 
+1. **Open `rosters.js`** in your code editor
+2. **Add a new object** to the `TEAM_ROSTERS` array with:
+   - **id**: Unique lowercase identifier (e.g., `varsity-gold`)
+   - **name**: Display name that appears in the dropdown (e.g., `Varsity Gold`)
+   - **players**: Array of player names as strings
+
+### Template
 ```javascript
 {
     id: 'unique-id',
     name: 'Display Name',
-    players: ['Player 1', 'Player 2', 'Player 3', ...]
+    players: ['Player 1', 'Player 2', 'Player 3', 'Player 4', ...]
 }
 ```
 
-**Example:**
+### Example: Adding a New Roster
 ```javascript
 {
     id: 'varsity-gold',
     name: 'Varsity Gold',
-    players: ['Sarah', 'Juan', 'Alex', 'Morgan', 'Emma']
+    players: ['Sarah', 'Juan', 'Alex', 'Morgan', 'Emma', 'Chris']
 }
 ```
 
-The roster will instantly appear in the "Load a Roster" dropdown on the app.
+### What Happens After
+- The new roster will **instantly appear** in the "Load a Roster" dropdown on the app
+- No build process needed—just refresh your browser
+- Select it from the dropdown to randomize teams from those players
+
+### Current Rosters
+Check the existing rosters in `rosters.js` for formatting examples:
+- **18 Teal** (10 players)
+- **18 Coral** (10 players)
 
 ## Local Development
 

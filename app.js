@@ -212,11 +212,17 @@ function generateTeamsQuick(playerCount, teamSize) {
     const shuffled = shuffleArray(players);
 
     const teamCount = Math.floor(playerCount / teamSize);
+    const remainder = playerCount % teamSize;
     const teamPlayers = getRandomTeamNames(teamCount);
 
     teams = [];
+    let playerIndex = 0;
+    
     for (let i = 0; i < teamCount; i++) {
-        const roster = shuffled.slice(i * teamSize, (i + 1) * teamSize);
+        const baseSize = teamSize + (i < remainder ? 1 : 0);
+        const roster = shuffled.slice(playerIndex, playerIndex + baseSize);
+        playerIndex += baseSize;
+        
         const playerObj = teamPlayers[i];
         teams.push({
             id: i,
@@ -231,11 +237,17 @@ function generateTeamsNamed(playerCount, teamSize) {
     const shuffled = shuffleArray(namedPlayers);
 
     const teamCount = Math.floor(playerCount / teamSize);
+    const remainder = playerCount % teamSize;
     const teamPlayers = getRandomTeamNames(teamCount);
 
     teams = [];
+    let playerIndex = 0;
+    
     for (let i = 0; i < teamCount; i++) {
-        const roster = shuffled.slice(i * teamSize, (i + 1) * teamSize);
+        const baseSize = teamSize + (i < remainder ? 1 : 0);
+        const roster = shuffled.slice(playerIndex, playerIndex + baseSize);
+        playerIndex += baseSize;
+        
         const playerObj = teamPlayers[i];
         teams.push({
             id: i,
